@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Chhatiyar Ceremony — Mohammad Asad</title>
+<meta name="description" content="With the blessings of Almighty Allah and the love of our family, we invite you to the Chhatiyar Ceremony of Mohammad Asad — Wednesday, 28 October 2026, 6:00 PM onwards, at our home.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500&family=Amiri:wght@400&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F7F2E7;
+    --ivory-2:#FBF8F1;
+    --sand:#F0E7D3;
+    --teal:#0C3B35;
+    --teal-deep:#082A26;
+    --teal-ink:#0C3B35;
+    --ink:#2A3128;
+    --gold:#B08A3C;
+    --gold-soft:rgba(176,138,60,.55);
+    --gold-faint:rgba(176,138,60,.28);
+    --gold-lite:#D9B968;
+    --ivory-dim:rgba(247,242,231,.72);
+    --ivory-faint:rgba(247,242,231,.45);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{
+    font-family:'Jost',sans-serif;
+    background:radial-gradient(120% 90% at 50% 0%, #11453E 0%, var(--teal-deep) 55%, #051B18 100%);
+    color:var(--ink);
+    overflow:hidden;
+  }
+  .stage{
+    position:relative;
+    width:min(480px,100vw);
+    height:100dvh;
+    margin:0 auto;
+    overflow:hidden;
+    background:var(--ivory);
+    box-shadow:0 0 90px rgba(0,0,0,.5);
+    touch-action:pan-y;
+    user-select:none;
+    -webkit-user-select:none;
+  }
+  .track{display:flex;height:100%;transition:transform .85s cubic-bezier(.77,0,.18,1);will-change:transform}
+  .track.dragging{transition:none}
+  .slide{
+    position:relative;flex:0 0 100%;height:100%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:56px 34px 92px;text-align:center;overflow:hidden;
+  }
+  .slide.light{background:linear-gradient(180deg,var(--ivory-2),var(--ivory))}
+  .slide.sand{background:linear-gradient(180deg,#F4EDDC,var(--sand))}
+  .slide.dark{background:linear-gradient(180deg,#0E423B,var(--teal) 60%,#09302B);color:var(--ivory)}
+  .arch{position:absolute;inset:16px;border:1px solid var(--gold-faint);border-radius:230px 230px 14px 14px;pointer-events:none;z-index:3}
+  .dark .arch{border-color:rgba(216,185,120,.35)}
+  .arch::after{content:"";position:absolute;inset:5px;border:1px solid var(--gold-faint);border-radius:225px 225px 10px 10px;opacity:.55}
+  .dust{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+  .dust i{position:absolute;bottom:-12px;border-radius:50%;background:radial-gradient(circle,#D9B968 0%,rgba(217,185,104,0) 70%);opacity:0;animation:rise linear infinite}
+  @keyframes rise{0%{transform:translateY(0) translateX(0);opacity:0}12%{opacity:var(--o,.5)}85%{opacity:var(--o,.5)}100%{transform:translateY(-104dvh) translateX(var(--sway,14px));opacity:0}}
+  .above{position:relative;z-index:2}
+  /* ---------- type ---------- */
+  .bismillah{font-family:'Amiri',serif;font-size:27px;color:var(--gold);line-height:1.5}
+  .kicker{font-size:11px;font-weight:500;letter-spacing:.42em;text-transform:uppercase;color:var(--gold)}
+  .kicker.on-dark{color:var(--gold-lite)}
+  .lede{font-family:'Fraunces',serif;font-weight:300;font-size:16.5px;line-height:1.65;color:#4A4A3E;max-width:300px}
+  .dark .lede{color:var(--ivory-dim)}
+  .display{font-family:'Fraunces',serif;font-weight:500;color:var(--teal-ink);line-height:1.02}
+  .dark .display{color:var(--ivory)}
+  .script{font-family:'Great Vibes',cursive;font-weight:400}
+  .rule{display:flex;align-items:center;gap:12px;width:150px}
+  .rule::before,.rule::after{content:"";height:1px;flex:1;background:var(--gold-soft)}
+  .rule b{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:0 0 auto}
+  .dark .rule::before,.dark .rule::after{background:rgba(217,185,104,.5)}
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+  .stage.opened .slide.active .rv{opacity:1;transform:none}
+  .stage.opened .slide.active .rv.d1{transition-delay:.15s}.stage.opened .slide.active .rv.d2{transition-delay:.28s}
+  .stage.opened .slide.active .rv.d3{transition-delay:.41s}.stage.opened .slide.active .rv.d4{transition-delay:.54s}
+  .stage.opened .slide.active .rv.d5{transition-delay:.67s}.stage.opened .slide.active .rv.d6{transition-delay:.8s}
+  .stage.opened .slide.active .rv.d7{transition-delay:.93s}
+  /* ---------- cover ---------- */
+  .cover-word{font-size:clamp(58px,17.5vw,76px);letter-spacing:.005em;margin-top:14px}
+  .cover-sub{font-size:12.5px;letter-spacing:.58em;text-transform:uppercase;color:var(--ink);margin-top:12px;text-indent:.58em}
+  .joy{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:19px;color:#55543F;margin-top:20px}
+  /* ---------- baby ---------- */
+  #bloom{position:absolute;inset:0;z-index:0;pointer-events:none}
+  .baby-name{font-size:clamp(56px,16.5vw,72px)}
+  .baby-name em{
+    font-style:italic;font-weight:400;
+    background:linear-gradient(100deg,#D9B968 25%,#F6E7BC 42%,#FFF7DC 50%,#F6E7BC 58%,#D9B968 75%);
+    background-size:250% 100%;background-position:100% 0;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  }
+  .stage.opened .slide.active .baby-name em{animation:sheen 2.6s ease .7s 1 both}
+  @keyframes sheen{from{background-position:100% 0}to{background-position:0% 0}}
+  .sonof{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--ivory-faint);margin-top:30px}
+  .parents{font-family:'Fraunces',serif;font-weight:400;font-size:19px;line-height:1.5;color:var(--ivory);margin-top:10px;white-space:nowrap}
+  .parents span{color:var(--gold-lite);font-style:italic}
+  /* ---------- when ---------- */
+  .bignum{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(140px,41vw,178px);line-height:.95;color:var(--teal-ink)}
+  .bignum sup{font-size:.22em;font-style:italic;color:var(--gold);font-weight:400;vertical-align:.9em}
+  .weekday{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:30px;color:var(--gold);margin-top:4px}
+  .monthline{font-size:13px;letter-spacing:.44em;text-transform:uppercase;margin-top:10px;color:var(--ink)}
+  .time-pill{margin-top:26px;border:1px solid var(--gold-soft);border-radius:999px;padding:11px 26px;font-size:14.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-ink);background:rgba(255,255,255,.4)}
+  .count{display:flex;gap:0;margin-top:28px;border-top:1px solid var(--gold-faint);border-bottom:1px solid var(--gold-faint)}
+  .count div{padding:10px 14px 8px;min-width:62px}
+  .count div+div{border-left:1px solid var(--gold-faint)}
+  .count b{display:block;font-weight:400;font-size:24px;color:var(--teal-ink);font-variant-numeric:tabular-nums;line-height:1}
+  .count span{display:block;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:5px}
+  .count-note{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#8A8570;margin-top:10px}
+  .cal-btn{margin-top:18px;display:inline-block;text-decoration:none;cursor:pointer;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold-soft);padding-bottom:4px;background:none;border-top:none;border-left:none;border-right:none;font-family:'Jost',sans-serif}
+  .cal-btn:active{opacity:.6}
+  /* ---------- where ---------- */
+  .home-word{font-size:clamp(52px,15vw,66px)}
+  .home-ico{width:46px;height:46px;color:var(--gold)}
+  .note{font-family:'Fraunces',serif;font-weight:300;font-size:17.5px;line-height:1.7;color:#4A4A3E;max-width:308px;margin-top:22px}
+  /* ---------- closing ---------- */
+  .closing-line{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:27px;line-height:1.45;color:var(--ivory);max-width:320px}
+  .withlove{margin-top:34px}
+  .host{font-family:'Fraunces',serif;font-size:20px;color:var(--ivory);margin-top:12px;line-height:1.55}
+  .host small{display:block;font-family:'Jost',sans-serif;font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-lite);margin-top:2px}
+  .footline{position:absolute;bottom:96px;left:0;right:0;font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ivory-faint);z-index:2}
+  /* ---------- chrome ---------- */
+  .progress{position:absolute;top:0;left:0;height:2px;background:var(--gold);width:20%;transition:width .85s cubic-bezier(.77,0,.18,1),opacity .6s;z-index:5}
+  .counter{position:absolute;top:22px;right:26px;z-index:5;font-size:11px;letter-spacing:.3em;color:var(--gold);font-weight:500;transition:color .5s,opacity .6s}
+  .brandmark{position:absolute;top:20px;left:26px;z-index:5;font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--gold);transition:color .5s,opacity .6s}
+  .stage.on-dark .counter,.stage.on-dark .brandmark{color:var(--gold-lite)}
+  .navrow{position:absolute;left:0;right:0;bottom:30px;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:0 30px;transition:opacity .6s}
+  .arrow{width:42px;height:42px;border-radius:50%;border:1px solid var(--gold-soft);background:transparent;color:var(--gold);font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s,opacity .3s;font-family:'Jost',sans-serif}
+  .arrow:disabled{opacity:.25;cursor:default}
+  .stage.on-dark .arrow{border-color:rgba(217,185,104,.5);color:var(--gold-lite)}
+  .dots{display:flex;gap:9px;align-items:center}
+  .dot{width:7px;height:7px;border-radius:50%;border:1px solid var(--gold);background:transparent;cursor:pointer;padding:0;transition:background .3s,transform .3s}
+  .dot.on{background:var(--gold);transform:scale(1.25)}
+  .hint{position:absolute;left:0;right:0;bottom:86px;z-index:4;text-align:center;font-size:10.5px;letter-spacing:.36em;text-transform:uppercase;color:#8A8570;animation:hintfloat 2.6s ease-in-out infinite;pointer-events:none;transition:opacity .5s}
+  @keyframes hintfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .hint.gone{opacity:0}
+  .stage:not(.opened) .progress,.stage:not(.opened) .counter,.stage:not(.opened) .brandmark,.stage:not(.opened) .navrow,.stage:not(.opened) .hint{opacity:0;pointer-events:none}
+  /* ---------- v3: fx canvas, music, dua, lanterns ---------- */
+  #fx{position:absolute;inset:0;z-index:17;pointer-events:none}
+  .gate-for{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .music-btn{
+    position:absolute;top:62px;right:22px;z-index:6;width:38px;height:38px;border-radius:50%;
+    border:1px solid var(--gold-soft);background:transparent;color:var(--gold);cursor:pointer;
+    font-size:15px;display:flex;align-items:center;justify-content:center;transition:opacity .6s,color .5s,border-color .5s;
+  }
+  .stage.on-dark .music-btn{color:var(--gold-lite);border-color:rgba(217,185,104,.5)}
+  .stage:not(.opened) .music-btn{opacity:0;pointer-events:none}
+  .dua-line{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:16.5px;line-height:1.55;
+    color:var(--gold-lite);max-width:300px;margin-top:24px;min-height:26px;opacity:0;transition:opacity .9s ease;
+  }
+  .dua-line.show{opacity:1}
+  .tap-hint{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--ivory-faint);margin-top:14px;transition:opacity .6s}
+  .tap-hint.gone{opacity:0}
+  #lanterns{position:absolute;inset:0;z-index:1;pointer-events:none}
+  .lantern-btn{
+    margin-top:26px;border:1px solid rgba(217,185,104,.55);color:var(--gold-lite);background:transparent;cursor:pointer;
+    border-radius:999px;padding:12px 26px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+  }
+  .lantern-btn:active{background:rgba(217,185,104,.18)}
+  .lantern-count{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory-faint);margin-top:12px;min-height:14px}
+  /* ---------- gate ---------- */
+  #gate{
+    position:absolute;inset:0;z-index:20;background:linear-gradient(180deg,var(--ivory-2),var(--ivory));
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 34px;
+    transition:opacity .55s ease;
+  }
+  #gate.lift{opacity:0;pointer-events:none}
+  .gate-arch{position:absolute;inset:16px;border:1px solid var(--gold-faint);border-radius:230px 230px 14px 14px;pointer-events:none}
+  .gate-arch::after{content:"";position:absolute;inset:5px;border:1px solid var(--gold-faint);border-radius:225px 225px 10px 10px;opacity:.55}
+  .seal{position:relative;width:118px;height:118px;display:flex;align-items:center;justify-content:center}
+  .seal .ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold-soft)}
+  .seal .ring.r2{inset:7px;border-color:var(--gold-faint)}
+  .seal .pulse{position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold-soft);animation:pulse 3s ease-out infinite}
+  .seal .pulse.p2{animation-delay:1.5s}
+  @keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.22);opacity:0}}
+  .seal svg{width:52px;height:52px;color:var(--gold)}
+  .gate-script{font-family:'Great Vibes',cursive;font-size:44px;color:var(--teal-ink);margin-top:30px;line-height:1.15}
+  .gate-sub{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:#8A8570;margin-top:14px}
+  .open-btn{
+    margin-top:36px;border:1px solid var(--gold);color:var(--teal-ink);background:transparent;cursor:pointer;
+    border-radius:999px;padding:14px 34px;font-family:'Jost',sans-serif;font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;
+    transition:background .3s,color .3s;
+  }
+  .open-btn:active{background:var(--gold);color:#fff}
+  .gate-date{position:absolute;bottom:44px;left:0;right:0;font-size:10.5px;letter-spacing:.4em;color:#A39C83;text-transform:uppercase}
+  /* ---------- wipe ---------- */
+  #wipe{
+    position:absolute;inset:0;z-index:15;pointer-events:none;
+    background:radial-gradient(circle at 50% 42%, #12554B 0%, var(--teal) 55%, var(--teal-deep) 100%);
+    clip-path:circle(0% at 50% 42%);opacity:0;
+  }
+  #wipe.run{opacity:1;transition:clip-path 1.15s cubic-bezier(.77,0,.18,1);clip-path:circle(142% at 50% 42%)}
+  #wipe.fade{transition:opacity .6s ease;opacity:0}
+  @media (prefers-reduced-motion: reduce){
+    .dust i,.seal .pulse{animation:none}
+    .track{transition-duration:.2s}
+    .rv{transition-duration:.2s}
+    .hint{animation:none}
+    #wipe.run{transition-duration:.2s}
+    .stage.opened .slide.active .baby-name em{animation:none}
+  }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="progress" id="progress"></div>
+  <div class="brandmark">M · A</div>
+  <div class="counter" id="counter">01 / 05</div>
+
+  <div class="track" id="track">
+
+    <!-- 1 · COVER -->
+    <section class="slide light">
+      <div class="arch"></div><div class="dust"></div>
+      <div class="bismillah above rv d1">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <p class="lede above rv d2" style="margin-top:16px">With the blessings of Almighty Allah<br>and the love of our family,<br>we are delighted to invite you to the</p>
+      <h1 class="display cover-word above rv d3">Chhatiyar</h1>
+      <div class="cover-sub above rv d4">Ceremony</div>
+      <div class="rule above rv d5" style="margin-top:26px"><b></b></div>
+      <p class="joy above rv d6">of our little bundle of joy</p>
+    </section>
+
+    <!-- 2 · THE BABY -->
+    <section class="slide dark">
+      <canvas id="bloom"></canvas>
+      <div class="arch"></div><div class="dust"></div>
+      <div class="kicker on-dark above rv d1">Our Little Bundle of Joy</div>
+      <h2 class="display baby-name above rv d2" style="margin-top:18px">Mohammad<br><em>Asad</em></h2>
+      <div class="rule above rv d3" style="margin-top:28px"><b></b></div>
+      <div class="sonof above rv d4">Son of</div>
+      <p class="parents above rv d5">Dilsad Ahmed <span>&amp;</span> Washima Khatoon</p>
+      <p class="dua-line above" id="duaLine"></p>
+      <div class="tap-hint above" id="tapHint">Tap the crescent for a blessing</div>
+    </section>
+
+    <!-- 3 · WHEN -->
+    <section class="slide light">
+      <div class="arch"></div><div class="dust"></div>
+      <div class="kicker above rv d1">The Celebration</div>
+      <div class="bignum above rv d2">28<sup>th</sup></div>
+      <div class="weekday above rv d3">Wednesday</div>
+      <div class="monthline above rv d3">October · 2026</div>
+      <div class="time-pill above rv d4">6:00 PM Onwards</div>
+      <div class="count above rv d5" role="timer" aria-label="Countdown to the celebration">
+        <div><b id="cd-d">--</b><span>Days</span></div>
+        <div><b id="cd-h">--</b><span>Hours</span></div>
+        <div><b id="cd-m">--</b><span>Mins</span></div>
+        <div><b id="cd-s">--</b><span>Secs</span></div>
+      </div>
+      <div class="count-note above rv d6" id="cd-note">Until the celebration</div>
+      <a class="cal-btn above rv d7" target="_blank" rel="noopener"
+         href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Chhatiyar%20Ceremony%20of%20Mohammad%20Asad&dates=20261028T123000Z/20261028T153000Z&details=Chhatiyar%20Ceremony%20of%20Mohammad%20Asad%2C%20son%20of%20Dilsad%20Ahmed%20%26%20Washima%20Khatoon.&location=Our%20Home">Add to Calendar</a>
+    </section>
+
+    <!-- 4 · WHERE -->
+    <section class="slide sand">
+      <div class="arch"></div><div class="dust"></div>
+      <svg class="home-ico above rv d1" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M8 24 24 9l16 15"/><path d="M13 22v16h22V22"/><path d="M20 38V29h8v9"/>
+      </svg>
+      <div class="kicker above rv d2" style="margin-top:18px">The Venue</div>
+      <h2 class="display home-word above rv d3" style="margin-top:12px">Our Home</h2>
+      <div class="rule above rv d4" style="margin-top:24px"><b></b></div>
+      <p class="note above rv d5">Your presence will make this special occasion even more memorable. We would be honoured to have you with us to bless our baby.</p>
+    </section>
+
+    <!-- 5 · CLOSING -->
+    <section class="slide dark">
+      <canvas id="lanterns"></canvas>
+      <div class="arch"></div><div class="dust"></div>
+      <p class="closing-line above rv d1">“We look forward to your kind presence and blessings.”</p>
+      <div class="rule above rv d2" style="margin-top:30px"><b></b></div>
+      <div class="script above rv d3 withlove" style="font-size:34px;color:var(--gold-lite)">with love,</div>
+      <div class="host above rv d4">Dilsad Ahmed<small>Father</small></div>
+      <div class="host above rv d5">Washima Khatoon<small>Mother</small></div>
+      <button class="lantern-btn above rv d6" id="lanternBtn">Release a Blessing Lantern</button>
+      <div class="lantern-count above" id="lanternCount"></div>
+      <button class="cal-btn above rv d6" id="againBtn" style="color:var(--gold-lite);border-color:rgba(217,185,104,.5);margin-top:22px">View Again</button>
+      <div class="footline">Mohammad Asad · 28 · 10 · 2026</div>
+    </section>
+
+  </div>
+
+  <div class="hint" id="hint">Slide to Open</div>
+  <div class="navrow">
+    <button class="arrow" id="prevBtn" aria-label="Previous slide">←</button>
+    <div class="dots" id="dots"></div>
+    <button class="arrow" id="nextBtn" aria-label="Next slide">→</button>
+  </div>
+
+  <button class="music-btn" id="musicBtn" aria-label="Toggle music">♪</button>
+  <canvas id="fx"></canvas>
+  <div id="wipe"></div>
+
+  <!-- GATE -->
+  <div id="gate">
+    <div class="gate-arch"></div>
+    <div class="dust"></div>
+    <div class="seal above">
+      <span class="ring"></span><span class="ring r2"></span>
+      <span class="pulse"></span><span class="pulse p2"></span>
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M32.5 5.5A19 19 0 1 0 42.5 30 15.5 15.5 0 0 1 32.5 5.5Z"/>
+        <path d="M36 4l1.2 3.1L40.3 8.3l-3.1 1.2L36 12.6l-1.2-3.1-3.1-1.2 3.1-1.2L36 4Z" fill="currentColor" stroke="none"/>
+      </svg>
+    </div>
+    <div class="gate-for above" id="gateFor" hidden></div>
+    <div class="gate-script above">An invitation awaits</div>
+    <div class="gate-sub above">For You &amp; Your Family</div>
+    <button class="open-btn above" id="openBtn">Open the Invitation</button>
+    <div class="gate-date">28 · 10 · 2026</div>
+  </div>
+</div>
+
+<script>
+  const stage = document.getElementById('stage');
+  const track = document.getElementById('track');
+  const slides = [...track.children];
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsWrap = document.getElementById('dots');
+  const hint = document.getElementById('hint');
+  const DARK = [false, true, false, false, true];
+  let idx = 0, interacted = false, opened = false;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' on' : '');
+    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+  });
+  const dots = [...dotsWrap.children];
+
+  function render(offsetPx = 0) {
+    track.style.transform = `translateX(calc(${-idx * 100}% + ${offsetPx}px))`;
+  }
+  function goTo(i) {
+    idx = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach((s, k) => s.classList.toggle('active', k === idx));
+    dots.forEach((d, k) => d.classList.toggle('on', k === idx));
+    counter.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+    progress.style.width = ((idx + 1) / slides.length * 100) + '%';
+    stage.classList.toggle('on-dark', DARK[idx]);
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === slides.length - 1;
+    if (!interacted && idx > 0) { interacted = true; hint.classList.add('gone'); }
+    if (idx === 1) { if (!bloomStarted) startBloom(); else if (!bloomRunning) { bloomRunning = true; requestAnimationFrame(bloomFrame); } }
+    render();
+  }
+  prevBtn.addEventListener('click', () => goTo(idx - 1));
+  nextBtn.addEventListener('click', () => goTo(idx + 1));
+  document.getElementById('againBtn').addEventListener('click', () => goTo(0));
+  window.addEventListener('keydown', e => {
+    if (!opened) return;
+    if (e.key === 'ArrowRight') goTo(idx + 1);
+    if (e.key === 'ArrowLeft') goTo(idx - 1);
+  });
+
+  let startX = null, dx = 0;
+  stage.addEventListener('pointerdown', e => {
+    if (!opened || e.target.closest('a,button')) return;
+    startX = e.clientX; dx = 0;
+    track.classList.add('dragging');
+  });
+  stage.addEventListener('pointermove', e => {
+    if (startX === null) return;
+    dx = e.clientX - startX;
+    const edge = (idx === 0 && dx > 0) || (idx === slides.length - 1 && dx < 0);
+    render(edge ? dx * 0.35 : dx);
+  });
+  function endDrag() {
+    if (startX === null) return;
+    track.classList.remove('dragging');
+    if (dx < -60) goTo(idx + 1); else if (dx > 60) goTo(idx - 1); else render();
+    startX = null; dx = 0;
+  }
+  stage.addEventListener('pointerup', endDrag);
+  stage.addEventListener('pointercancel', endDrag);
+
+  let wheelLock = false;
+  stage.addEventListener('wheel', e => {
+    if (!opened || wheelLock || Math.abs(e.deltaY) < 24) return;
+    wheelLock = true; setTimeout(() => wheelLock = false, 900);
+    goTo(idx + (e.deltaY > 0 ? 1 : -1));
+  }, { passive: true });
+
+  /* gold dust */
+  document.querySelectorAll('.dust').forEach(layer => {
+    for (let i = 0; i < 16; i++) {
+      const s = document.createElement('i');
+      const size = 3 + Math.random() * 6;
+      s.style.width = s.style.height = size + 'px';
+      s.style.left = (Math.random() * 96 + 2) + '%';
+      s.style.setProperty('--o', (0.18 + Math.random() * 0.4).toFixed(2));
+      s.style.setProperty('--sway', (Math.random() * 36 - 18).toFixed(0) + 'px');
+      s.style.animationDuration = (11 + Math.random() * 10).toFixed(1) + 's';
+      s.style.animationDelay = (-Math.random() * 16).toFixed(1) + 's';
+      layer.appendChild(s);
+    }
+  });
+
+  /* ---------- gate + circle wipe (the birthday-site reveal, translated) ---------- */
+  const gate = document.getElementById('gate');
+  const wipe = document.getElementById('wipe');
+  document.getElementById('openBtn').addEventListener('click', () => {
+    if (opened) return;
+    opened = true;
+    wipe.classList.add('run');
+    setTimeout(() => gate.classList.add('lift'), 420);
+    setTimeout(() => {
+      stage.classList.add('opened');
+      slides[0].classList.add('active');
+    }, 500);
+    setTimeout(() => wipe.classList.add('fade'), 1250);
+    setTimeout(() => { wipe.style.display = 'none'; gate.style.display = 'none'; }, 1950);
+  });
+
+  /* ---------- blooming crescent ---------- */
+  const canvas = document.getElementById('bloom');
+  const ctx = canvas.getContext('2d');
+  let bloomStarted = false, bloomRunning = false, parts = [], bloomT0 = 0;
+  const sparks = [];
+  function sizeBloom() {
+    const slide = slides[1];
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = slide.clientWidth * dpr;
+    canvas.height = slide.clientHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function crescentPoints(w, h) {
+    const cx = w * 0.5, cy = h * 0.435, R = Math.min(w, h) * 0.335;
+    const ox = cx + R * 0.38, oy = cy - R * 0.14, r2 = R * 0.86;
+    const pts = [];
+    let guard = 0;
+    while (pts.length < 140 && guard++ < 9000) {
+      const a = Math.random() * Math.PI * 2, rr = R * (0.78 + 0.22 * Math.random());
+      const x = cx + Math.cos(a) * rr + (Math.random() * 4 - 2), y = cy + Math.sin(a) * rr + (Math.random() * 4 - 2);
+      if (Math.hypot(x - ox, y - oy) > r2) pts.push({ x, y });
+    }
+    return pts;
+  }
+  function startBloom() {
+    if (bloomStarted) return;
+    bloomStarted = true;
+    sizeBloom();
+    const slide = slides[1], w = slide.clientWidth, h = slide.clientHeight;
+    const targets = crescentPoints(w, h);
+    parts = targets.map((t, i) => ({
+      tx: t.x, ty: t.y,
+      sx: Math.random() * w, sy: h + Math.random() * h * 0.4,
+      size: 0.8 + Math.random() * 1.9,
+      delay: i * 7 + Math.random() * 250,
+      phase: Math.random() * Math.PI * 2,
+      speed: 0.6 + Math.random() * 1.1
+    }));
+    bloomT0 = performance.now();
+    bloomRunning = true;
+    requestAnimationFrame(bloomFrame);
+  }
+  function bloomFrame(now) {
+    const slide = slides[1], w = slide.clientWidth, h = slide.clientHeight;
+    ctx.clearRect(0, 0, w, h);
+    const t = now - bloomT0;
+    let settled = true;
+    for (const p of parts) {
+      const lt = Math.max(0, Math.min(1, (t - p.delay) / 1500));
+      if (lt < 1) settled = false;
+      const e = 1 - Math.pow(1 - lt, 3);
+      const x = p.sx + (p.tx - p.sx) * e;
+      const y = p.sy + (p.ty - p.sy) * e;
+      const tw = settled ? 0.45 + 0.55 * (0.5 + 0.5 * Math.sin(now * 0.001 * p.speed + p.phase)) : 0.25 + 0.75 * lt;
+      ctx.beginPath();
+      ctx.arc(x, y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(226,192,110,${tw.toFixed(3)})`;
+      ctx.fill();
+    }
+    for (let si = sparks.length - 1; si >= 0; si--) {
+      const sp = sparks[si];
+      sp.x += sp.vx; sp.y += sp.vy; sp.vy += 0.012; sp.life -= 0.016;
+      if (sp.life <= 0) { sparks.splice(si, 1); continue; }
+      ctx.beginPath();
+      ctx.arc(sp.x, sp.y, sp.r * sp.life, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(246,231,188,${(0.85 * sp.life).toFixed(3)})`;
+      ctx.fill();
+    }
+    if (slides[1].classList.contains('active') || !settled) requestAnimationFrame(bloomFrame);
+    else { bloomRunning = false; ctx.clearRect(0, 0, w, h); }
+  }
+  window.addEventListener('resize', () => { if (bloomStarted) { sizeBloom(); } });
+
+  /* ---------- countdown ---------- */
+  const target = new Date('2026-10-28T18:00:00+05:30').getTime();
+  const cd = { d: document.getElementById('cd-d'), h: document.getElementById('cd-h'), m: document.getElementById('cd-m'), s: document.getElementById('cd-s'), note: document.getElementById('cd-note') };
+  function tick() {
+    let diff = target - Date.now();
+    if (diff <= 0) {
+      cd.d.textContent = cd.h.textContent = cd.m.textContent = cd.s.textContent = '00';
+      cd.note.textContent = 'The celebration has begun';
+      return;
+    }
+    const d = Math.floor(diff / 864e5), h = Math.floor(diff / 36e5) % 24, m = Math.floor(diff / 6e4) % 60, s = Math.floor(diff / 1e3) % 60;
+    cd.d.textContent = String(d).padStart(2, '0');
+    cd.h.textContent = String(h).padStart(2, '0');
+    cd.m.textContent = String(m).padStart(2, '0');
+    cd.s.textContent = String(s).padStart(2, '0');
+    setTimeout(tick, 1000);
+  }
+  tick();
+
+
+  /* ================= v3 additions ================= */
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- personal greeting: ?to=Guest Name ---------- */
+  try {
+    const guest = new URLSearchParams(location.search).get('to');
+    if (guest) {
+      const clean = guest.replace(/\s+/g, ' ').trim().slice(0, 42);
+      if (clean) {
+        const gf = document.getElementById('gateFor');
+        gf.textContent = 'Prepared for ' + clean;
+        gf.hidden = false;
+        document.querySelector('.gate-sub').textContent = 'With love, from the Ahmed family';
+      }
+    }
+  } catch (e) {}
+
+  /* ---------- gold petal confetti on opening ---------- */
+  const fx = document.getElementById('fx'), fxCtx = fx.getContext('2d');
+  let fxBits = [], fxRunning = false;
+  function sizeFx() { fx.width = stage.clientWidth; fx.height = stage.clientHeight; }
+  sizeFx();
+  function burst() {
+    if (reducedMotion) return;
+    sizeFx();
+    const cols = ['#B08A3C', '#D9B968', '#F6E7BC', '#12554B', '#F7F2E7'];
+    for (let i = 0; i < 95; i++) {
+      fxBits.push({
+        x: fx.width / 2 + (Math.random() - 0.5) * fx.width * 0.5,
+        y: fx.height * 0.40 + (Math.random() - 0.5) * 60,
+        vx: (Math.random() - 0.5) * 3.4, vy: -(2.2 + Math.random() * 3.6),
+        w: 4 + Math.random() * 5, h: 6 + Math.random() * 7,
+        rot: Math.random() * Math.PI, vr: (Math.random() - 0.5) * 0.24,
+        col: cols[i % cols.length], life: 1, ph: Math.random() * Math.PI * 2
+      });
+    }
+    if (!fxRunning) { fxRunning = true; requestAnimationFrame(fxFrame); }
+  }
+  function fxFrame(now) {
+    fxCtx.clearRect(0, 0, fx.width, fx.height);
+    fxBits = fxBits.filter(b => b.life > 0);
+    for (const b of fxBits) {
+      b.vy += 0.045; b.vx *= 0.992; b.vy *= 0.994;
+      b.x += b.vx + Math.sin(now / 300 + b.ph) * 0.7;
+      b.y += b.vy; b.rot += b.vr;
+      if (b.y > fx.height * 0.55) b.life -= 0.011;
+      fxCtx.save(); fxCtx.translate(b.x, b.y); fxCtx.rotate(b.rot);
+      fxCtx.globalAlpha = Math.max(0, Math.min(1, b.life));
+      fxCtx.fillStyle = b.col;
+      fxCtx.beginPath(); fxCtx.ellipse(0, 0, b.w / 2, b.h / 2, 0, 0, Math.PI * 2); fxCtx.fill();
+      fxCtx.restore();
+    }
+    if (fxBits.length) requestAnimationFrame(fxFrame);
+    else { fxRunning = false; fxCtx.clearRect(0, 0, fx.width, fx.height); }
+  }
+
+  /* ---------- music box (WebAudio, public-domain lullaby) ---------- */
+  const NOTE = { C: 261.63, D: 293.66, E: 329.63, F: 349.23, G: 392.00, A: 440.00 };
+  const MELODY = [ ['C',1],['C',1],['G',1],['G',1],['A',1],['A',1],['G',2],
+                   ['F',1],['F',1],['E',1],['E',1],['D',1],['D',1],['C',2],
+                   ['G',1],['G',1],['F',1],['F',1],['E',1],['E',1],['D',2],
+                   ['G',1],['G',1],['F',1],['F',1],['E',1],['E',1],['D',2],
+                   ['C',1],['C',1],['G',1],['G',1],['A',1],['A',1],['G',2],
+                   ['F',1],['F',1],['E',1],['E',1],['D',1],['D',1],['C',2] ];
+  let actx = null, musicOn = false, musicTimer = null, noteIdx = 0, nextTime = 0;
+  const musicBtn = document.getElementById('musicBtn');
+  function pling(freq, t) {
+    const o1 = actx.createOscillator(), o2 = actx.createOscillator(), g = actx.createGain();
+    o1.type = 'sine'; o1.frequency.value = freq;
+    o2.type = 'sine'; o2.frequency.value = freq * 4;
+    const g2 = actx.createGain(); g2.gain.value = 0.12;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.16, t + 0.012);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 1.15);
+    o1.connect(g); o2.connect(g2); g2.connect(g); g.connect(actx.destination);
+    o1.start(t); o2.start(t); o1.stop(t + 1.25); o2.stop(t + 0.5);
+  }
+  function scheduleMusic() {
+    if (!musicOn) return;
+    const BEAT = 0.54;
+    while (nextTime < actx.currentTime + 1.4) {
+      const [n, beats] = MELODY[noteIdx];
+      pling(NOTE[n], nextTime);
+      nextTime += beats * BEAT;
+      noteIdx++;
+      if (noteIdx >= MELODY.length) { noteIdx = 0; nextTime += BEAT * 4; }
+    }
+    musicTimer = setTimeout(scheduleMusic, 420);
+  }
+  function setMusic(on) {
+    if (on) {
+      if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+      actx.resume();
+      musicOn = true; noteIdx = 0; nextTime = actx.currentTime + 0.08;
+      scheduleMusic();
+      musicBtn.textContent = '❚❚';
+    } else {
+      musicOn = false;
+      if (musicTimer) clearTimeout(musicTimer);
+      if (actx) actx.suspend();
+      musicBtn.textContent = '♪';
+    }
+  }
+  musicBtn.addEventListener('click', e => { e.stopPropagation(); setMusic(!musicOn); });
+
+  /* open: confetti + music join the existing reveal */
+  document.getElementById('openBtn').addEventListener('click', () => {
+    setTimeout(burst, 480);
+    setMusic(true);
+  });
+
+  /* ---------- tap the crescent: sparkles + a dua ---------- */
+  const DUAS = [
+    'May Allah bless Asad with health, happiness and a heart full of light.',
+    'May his life be filled with laughter, faith and endless love.',
+    'May he grow to be kind, wise and a source of pride for his family.',
+    'Barakallahu feek — may blessings surround him, today and always.'
+  ];
+  let duaIdx = 0;
+  const duaLine = document.getElementById('duaLine');
+  const tapHint = document.getElementById('tapHint');
+  let downX = null, downY = null;
+  slides[1].addEventListener('pointerdown', e => { downX = e.clientX; downY = e.clientY; });
+  slides[1].addEventListener('pointerup', e => {
+    if (downX === null || !opened) return;
+    const moved = Math.hypot(e.clientX - downX, e.clientY - downY);
+    downX = null;
+    if (moved > 8) return;
+    const rect = slides[1].getBoundingClientRect();
+    const x = e.clientX - rect.left, y = e.clientY - rect.top;
+    for (let i = 0; i < 26; i++) {
+      const a = Math.random() * Math.PI * 2, sp = 0.4 + Math.random() * 1.7;
+      sparks.push({ x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 0.4, r: 0.8 + Math.random() * 1.8, life: 1 });
+    }
+    if (!bloomRunning) { bloomRunning = true; requestAnimationFrame(bloomFrame); }
+    duaLine.classList.remove('show');
+    setTimeout(() => { duaLine.textContent = DUAS[duaIdx++ % DUAS.length]; duaLine.classList.add('show'); }, 240);
+    tapHint.classList.add('gone');
+  });
+
+  /* ---------- blessing lanterns (closing slide) ---------- */
+  const lc = document.getElementById('lanterns'), lctx = lc.getContext('2d');
+  const LDUAS = ['Health & happiness', 'A life full of light', 'Faith & kindness', 'Love, always', 'Barakallahu feek', 'Joy without end'];
+  let lanterns = [], lRunning = false, lCount = 0, lDuaIdx = 0;
+  function sizeLanterns() {
+    const s = slides[4];
+    lc.width = s.clientWidth; lc.height = s.clientHeight;
+  }
+  sizeLanterns();
+  function releaseLantern() {
+    sizeLanterns();
+    lanterns.push({
+      x: lc.width * (0.3 + Math.random() * 0.4), y: lc.height + 34,
+      vy: 19 + Math.random() * 9, ph: Math.random() * Math.PI * 2,
+      sway: 6 + Math.random() * 9, text: LDUAS[lDuaIdx++ % LDUAS.length], born: performance.now()
+    });
+    lCount++;
+    document.getElementById('lanternCount').textContent = lCount + (lCount === 1 ? ' lantern of blessings released' : ' lanterns of blessings released');
+    if (!lRunning) { lRunning = true; requestAnimationFrame(lanternFrame); }
+  }
+  function lanternFrame(now) {
+    const w = lc.width, hgt = lc.height;
+    lctx.clearRect(0, 0, w, hgt);
+    const dtS = 1 / 60;
+    lanterns = lanterns.filter(L => L.y > -84);
+    for (const L of lanterns) {
+      L.y -= L.vy * dtS * 2.2;
+      const x = L.x + Math.sin(now / 1600 + L.ph) * L.sway;
+      const fadeIn = Math.min(1, (hgt + 34 - L.y) / 90);
+      const fadeOut = Math.min(1, Math.max(0, (L.y + 40) / 130));
+      const a = Math.min(fadeIn, fadeOut);
+      const flick = 0.86 + 0.14 * Math.sin(now / 130 + L.ph * 3);
+      const g = lctx.createRadialGradient(x, L.y, 2, x, L.y, 34);
+      g.addColorStop(0, `rgba(246,231,188,${(0.5 * a * flick).toFixed(3)})`);
+      g.addColorStop(1, 'rgba(246,231,188,0)');
+      lctx.fillStyle = g;
+      lctx.beginPath(); lctx.arc(x, L.y, 34, 0, Math.PI * 2); lctx.fill();
+      lctx.save();
+      lctx.globalAlpha = a;
+      lctx.fillStyle = '#E9CF8F';
+      lctx.beginPath();
+      lctx.moveTo(x - 9, L.y - 13); lctx.lineTo(x + 9, L.y - 13);
+      lctx.lineTo(x + 12, L.y + 10); lctx.lineTo(x - 12, L.y + 10);
+      lctx.closePath(); lctx.fill();
+      lctx.fillStyle = `rgba(255,166,66,${(0.9 * flick).toFixed(3)})`;
+      lctx.beginPath(); lctx.ellipse(x, L.y + 1, 3.4, 5.2, 0, 0, Math.PI * 2); lctx.fill();
+      lctx.strokeStyle = 'rgba(217,185,104,.8)'; lctx.lineWidth = 1;
+      lctx.beginPath(); lctx.moveTo(x, L.y - 19); lctx.lineTo(x, L.y - 13); lctx.stroke();
+      lctx.font = '10px Jost, sans-serif';
+      lctx.textAlign = 'center';
+      lctx.fillStyle = `rgba(247,242,231,${(0.85 * a).toFixed(3)})`;
+      lctx.fillText(L.text.toUpperCase(), x, L.y + 30);
+      lctx.restore();
+    }
+    if (lanterns.length && slides[4].classList.contains('active')) requestAnimationFrame(lanternFrame);
+    else if (lanterns.length) requestAnimationFrame(lanternFrame);
+    else { lRunning = false; lctx.clearRect(0, 0, w, hgt); }
+  }
+  document.getElementById('lanternBtn').addEventListener('click', releaseLantern);
+  window.addEventListener('resize', () => { sizeFx(); sizeLanterns(); });
+
+  slides[0].classList.remove('active');
+  goTo(0);
+  slides[0].classList.remove('active');
+</script>
+</body>
+</html>
