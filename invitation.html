@@ -721,5 +721,16 @@
   goTo(0);
   slides[0].classList.remove('active');
 </script>
+
+<script>
+  /* Auto-open: guests already tapped "Open" on the landing page, so this page
+     runs its reveal on arrival instead of asking for a second open tap. */
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var b = document.getElementById('openBtn');
+      if (b) b.click();
+    }, 400);
+  });
+</script>
 </body>
 </html>
